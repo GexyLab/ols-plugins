@@ -1,2 +1,2 @@
-# ols-projects-dir
-Plugin for read OpenLab Studio projects from directory
+# ols-plugins
+Repository for community plugins of OpenLab Studio and OpenLab Standalone
