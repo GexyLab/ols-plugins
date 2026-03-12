@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>library</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>OpenLabStudio.plugins</RootNamespace>
+	<Version>1.42.1</Version>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<UseWPF>true</UseWPF>
+	<Company>Gexy</Company>
+	<Authors>Eugenio Liguori</Authors>
+	<PackageProjectUrl>https://github.com/GexyLab/ols-plugins/tree/main/Projects%20directory</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GeJSON">
+      <HintPath>lib\GeJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenLabSDK">
+      <HintPath>lib\OpenLabSDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
