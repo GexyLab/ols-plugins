@@ -16,7 +16,7 @@ Below is an example of the configuration for this plugin in the OpenLab Studio c
       "enabled": true,
       "path": "OpenLab Studio\\plugins\\ols-plugin-projects-directory.dll",
       "config": {
-        "projectsDir": "OpenLab Studio\\projects"
+        "projectsDir": "projects"
       }
     }
   ]
@@ -27,6 +27,19 @@ Below is an example of the configuration for this plugin in the OpenLab Studio c
 
 ### Config parameters
 Below are the plugin specific configuration parameters (config json object).
-| Name  | Optional | 
+| Name  | Required | 
 | ------------- | ------------- |
-| projectsDir  | No |
+| projectsDir  | Yes |
+
+#### Parameter: projectsDir
+This parameter specifies the root directory of the projects. It can be a complete path or a relative path to the OpenLab Studio root directory, like the config exemple reported above. 
+
+Relative path exemple
+```
+"projectsDir": "projects"
+```
+
+Absolute path exemple
+```
+"projectsDir": "C:\\Users\\User\\ols\\projects"
+```
