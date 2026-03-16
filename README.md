@@ -7,7 +7,7 @@ The directory is specified in the OpenLab Studio config.json file. By default, t
 
 ## Config
 Below is an example of the configuration for this plugin in the OpenLab Studio config.json file.
-```json
+```
 [...]
 "plugins": {
   "loadOnStart": true,
