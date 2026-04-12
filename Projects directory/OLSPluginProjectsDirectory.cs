@@ -3,6 +3,7 @@ using OpenLabSDK.config;
 using OpenLabSDK.error;
 using OpenLabSDK.events;
 using OpenLabSDK.plugin;
+using OpenLabSDK.project;
 using OpenLabSDK.ui;
 using OpenLabStudio.project;
 using System.IO;
@@ -11,7 +12,7 @@ using System.Windows.Shapes;
 
 namespace OpenLabStudio.plugins
 {
-    public class OLSPluginProjectsDirectory : Plugin
+    public class OLSPluginProjectsDirectory : ProjectStorage
     {
         #region Variables
 
@@ -27,7 +28,6 @@ namespace OpenLabStudio.plugins
 
         string? projectsDirPath;
         DirectoryInfo projectsDir;
-        List<Project> projects = new();
 
 
         #endregion
@@ -37,8 +37,8 @@ namespace OpenLabStudio.plugins
             IPluginsManager _pluginsManager,
             IEventsManager _eventsManager,
             IWindowsManager _windowsManager,
-            ProjectsManager _projeProjectsManager,
-            PluginDefinition _pluginDefinition) : base(_errorManager, _pluginsManager, _eventsManager, _windowsManager, _projeProjectsManager, _pluginDefinition)
+            ProjectsManager _projectsManager,
+            PluginDefinition _pluginDefinition) : base(_errorManager, _pluginsManager, _eventsManager, _windowsManager, _projectsManager, _pluginDefinition)
         {
             pluginInfo = new Info();
         }
@@ -51,26 +51,8 @@ namespace OpenLabStudio.plugins
 
         public override int init()
         {
-            log.info($"Init plugin {pluginInfo.Title} ({pluginInfo.Name})");
+            log.info($"Init project storage {pluginInfo.Title} ({pluginInfo.Name})");
 
-            eventsManager.addEventHandler("projectManager.projects.load", (object sender, EventArgs e) =>
-            {
-                try
-                {
-                    initProjectsDir();
-                    readProjects();
-
-                    foreach (var project in projects) {
-                        ((ProjectsManager)sender).AddProject(project);
-                    }
-
-                }
-                catch { throw; }
-                
-
-                
-                return true;
-            });
 
             /*eventsManager.addEventHandler("ols.ready", (object sender, EventArgs e) =>
             {
@@ -143,7 +125,8 @@ namespace OpenLabStudio.plugins
                     JObject projectDef = readProjectMainFile(projectFile);
 
                     log.debug("Instatiate project");
-                    Project prj = new Project(projectsManager, projectDef);
+                    Project prj = new Project(projectsManager, this, projectDef);
+
                     projects.Add(prj);
                 }
                 else
@@ -174,6 +157,21 @@ namespace OpenLabStudio.plugins
             JObject projectDef = new JObject(content);
 
             return projectDef;
+        }
+
+        public override void loadFromStorage()
+        {
+            try
+            {
+                initProjectsDir();
+                readProjects();
+            }
+            catch { throw; }
+        }
+
+        public override void saveToStorage()
+        {
+            throw new NotImplementedException();
         }
     }
 }
