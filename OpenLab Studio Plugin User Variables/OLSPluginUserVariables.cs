@@ -3,12 +3,11 @@ using OpenLabSDK.config;
 using OpenLabSDK.error;
 using OpenLabSDK.events;
 using OpenLabSDK.plugin;
-using OpenLabSDK.types;
 using OpenLabSDK.ui;
 using OpenLabStudio.project;
 using System.Windows;
 using System.Xml.Linq;
-using static OpenLabSDK.types.Text;
+using static OpenLabSDK.expression.Text;
 
 
 namespace OpenLab_Studio_Plugin_User_Variables
