@@ -61,9 +61,4 @@ Other builtin variables
 
 |Name|Description|
 |:----|:--------|
-|userName||
-|machineName||
-|processId||
-|processPath||
-|currentDirectory||
-|systemDirectory||
+|||
