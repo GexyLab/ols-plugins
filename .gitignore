@@ -5,3 +5,6 @@
 /.vs
 /Projects directory/obj
 /Projects directory/bin/Release/net8.0-windows
+/OpenLab Studio Plugin User Variables/bin/Release/net8.0-windows
+/OpenLab Studio Plugin User Variables/Properties/PublishProfiles
+/OpenLab Studio Plugin User Variables/obj
