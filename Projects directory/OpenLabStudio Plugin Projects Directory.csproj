@@ -11,15 +11,12 @@
 	<Company>Gexy</Company>
 	<Authors>Eugenio Liguori</Authors>
 	<PackageProjectUrl>https://github.com/GexyLab/ols-plugins/tree/main/Projects%20directory</PackageProjectUrl>
-	<AssemblyName>OpenLabStudio Plugin Projects Directory</AssemblyName>
+	<AssemblyName>OpenLabStudio-plugin-projects-directory</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="GeJSON">
       <HintPath>..\..\OpenLab Studio\OpenLab Studio\lib\GeJSON.dll</HintPath>
-    </Reference>
-    <Reference Include="ol-sdk">
-      <HintPath>..\..\OpenLab Studio\OpenLab Studio\lib\ol-sdk.dll</HintPath>
     </Reference>
     <Reference Include="OpenLabSDK">
       <HintPath>..\..\OpenLab Studio\OpenLab Studio\lib\OpenLabSDK.dll</HintPath>
