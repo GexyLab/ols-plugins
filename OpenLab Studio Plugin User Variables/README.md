@@ -1,4 +1,4 @@
-# OpenLab Studio User Variables
+# OpenLab Studio Plugin User Variables
 This plugin allows the user to create custom variables. Variables can be used in the fields where they are allowed. This plugin also provides all environment variables, special directories, and some variables from the Environment class.
 
 It also provides some LogicBlocks for using variables in the Desk Editor.
