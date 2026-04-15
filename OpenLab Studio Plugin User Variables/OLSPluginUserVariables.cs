@@ -120,6 +120,7 @@ namespace OpenLab_Studio_Plugin_User_Variables
 
         private void populateVariables()
         {
+            
             // environment special folders
             if (specialFoldersEnabled)
             {
@@ -147,34 +148,84 @@ namespace OpenLab_Studio_Plugin_User_Variables
             // built-in variables
             if (builtinEnabled)
             {
-                dictionary.Add("%%userName", (string source) =>
+                dictionary.Add("%%CommandLine", (string source) =>
                 {
-                    return source.Replace("%%userName", Environment.UserName);
+                    return source.Replace("%%CommandLine", Environment.CommandLine);
                 });
 
-                dictionary.Add("%%machineName", (string source) =>
-                {
-                    return source.Replace("%%machineName", Environment.MachineName);
-                });
-
-                dictionary.Add("%%processId", (string source) =>
-                {
-                    return source.Replace("%%processId", Environment.ProcessId.ToString());
-                });
-
-                dictionary.Add("%%processPath", (string source) =>
-                {
-                    return source.Replace("%%processPath", (Environment.ProcessPath == null) ? "" : Environment.ProcessPath);
-                });
-
-                dictionary.Add("%%currentDirectory", (string source) =>
+                dictionary.Add("%%CurrentDirectory", (string source) =>
                 {
                     return source.Replace("%%currentDirectory", Environment.CurrentDirectory);
                 });
 
-                dictionary.Add("%%systemDirectory", (string source) =>
+                dictionary.Add("%%CurrentManagedThreadId", (string source) =>
                 {
-                    return source.Replace("%%systemDirectory", Environment.SystemDirectory);
+                    return source.Replace("%%CurrentManagedThreadId", Environment.CurrentManagedThreadId.ToString());
+                });
+
+                dictionary.Add("%%Is64BitOperatingSystem", (string source) =>
+                {
+                    return source.Replace("%%Is64BitOperatingSystem", Environment.Is64BitOperatingSystem.ToString());
+                });
+
+                dictionary.Add("%%Is64BitProcess", (string source) =>
+                {
+                    return source.Replace("%%Is64BitProcess", Environment.Is64BitProcess.ToString());
+                });
+
+                dictionary.Add("%%IsPrivilegedProcess", (string source) =>
+                {
+                    return source.Replace("%%IsPrivilegedProcess", Environment.IsPrivilegedProcess.ToString());
+                });
+
+                dictionary.Add("%%machineName", (string source) =>
+                {
+                    return source.Replace("%%MachineName", Environment.MachineName);
+                });
+
+                dictionary.Add("%%NewLine", (string source) =>
+                {
+                    return source.Replace("%%NewLine", Environment.NewLine);
+                });
+
+                dictionary.Add("%%ProcessId", (string source) =>
+                {
+                    return source.Replace("%%ProcessId", Environment.ProcessId.ToString());
+                });
+
+                dictionary.Add("%%ProcessorCount", (string source) =>
+                {
+                    return source.Replace("%%ProcessorCount", Environment.ProcessId.ToString());
+                });
+
+                dictionary.Add("%%ProcessPath", (string source) =>
+                {
+                    return source.Replace("%%ProcessPath", (Environment.ProcessPath == null) ? "" : Environment.ProcessPath);
+                });
+
+                dictionary.Add("%%SystemDirectory", (string source) =>
+                {
+                    return source.Replace("%%SystemDirectory", Environment.SystemDirectory);
+                });
+                
+                dictionary.Add("%%UserDomainName", (string source) =>
+                {
+                    return source.Replace("%%UserDomainName", Environment.UserDomainName);
+                });
+
+                dictionary.Add("%%UserInteractive", (string source) =>
+                {
+                    return source.Replace("%%UserInteractive", Environment.UserInteractive.ToString());
+                });
+
+                dictionary.Add("%%UserName", (string source) =>
+                {
+                    return source.Replace("%%UserName", Environment.UserName);
+                });
+
+                dictionary.Add("%%WorkingSet", (string source) =>
+                {
+                    return source.Replace("%%WorkingSet", Environment.WorkingSet.ToString());
                 });
             }
 
