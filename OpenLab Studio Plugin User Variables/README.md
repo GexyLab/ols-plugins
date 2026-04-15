@@ -50,12 +50,21 @@ All variable of System.Environment.SpecialFolder class have been added to predef
 
 |Name|
 |:----|
-|userName|
+|CommandLine|
+|CurrentDirectory|
+|CurrentManagedThreadId|
+|Is64BitOperatingSystem|
+|Is64BitProcess|
+|IsPrivilegedProcess|
 |machineName|
-|processId|
-|processPath|
-|currentDirectory|
-|systemDirectory|
+|NewLine|
+|ProcessId|
+|ProcessorCount|
+|ProcessPath|
+|SystemDirectory|
+|UserDomainName|
+|useUserInteractiverName|
+|UseWorkingSetrName|
 
 Other builtin variables
 
