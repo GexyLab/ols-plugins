@@ -6,6 +6,8 @@ using OpenLabSDK.plugin;
 using OpenLabSDK.types;
 using OpenLabSDK.ui;
 using OpenLabStudio.project;
+using System.Windows;
+using System.Xml.Linq;
 using static OpenLabSDK.types.Text;
 
 
@@ -124,11 +126,22 @@ namespace OpenLab_Studio_Plugin_User_Variables
             {
                 foreach (System.Environment.SpecialFolder i in Enum.GetValues(typeof(System.Environment.SpecialFolder)))
                 {
-                    string name = $"%{Enum.GetName(typeof(System.Environment.SpecialFolder), i)}";
-                    dictionary.Add(name, (string source) =>
+                    string name = $"%%{Enum.GetName(typeof(System.Environment.SpecialFolder), i)}";
+                    if (dictionary.ContainsKey(name))
                     {
-                        return source.Replace(name, Environment.GetFolderPath(i));
-                    });
+                        dictionary[name] = (string source) =>
+                        {
+                            return source.Replace(name, Environment.GetFolderPath(i));
+                        };
+                    }
+                    else
+                    {
+                        dictionary.Add(name, (string source) =>
+                        {
+                            return source.Replace(name, Environment.GetFolderPath(i));
+                        });
+                    }
+                        
                 }
             }
 
@@ -177,10 +190,20 @@ namespace OpenLab_Studio_Plugin_User_Variables
                 JObject userVars = pluginDefinition.config.Get("dictionary", new JObject());
                 foreach (JPair v in userVars.GetProperties())
                 {
-                    dictionary.Add($"%%{v.Key}", (string source) =>
+                    if (dictionary.ContainsKey($"%%{v.Key}"))
                     {
-                        return source.Replace($"%%{v.Key}", v.Value);
-                    });
+                        dictionary[$"%%{v.Key}"] = (string source) =>
+                        {
+                            return source.Replace($"%%{v.Key}", v.Value);
+                        };
+                    }
+                    else
+                    {
+                        dictionary.Add($"%%{v.Key}", (string source) =>
+                        {
+                            return source.Replace($"%%{v.Key}", v.Value);
+                        });
+                    }
                 }
             }
 
@@ -190,7 +213,7 @@ namespace OpenLab_Studio_Plugin_User_Variables
             {
                 bivStr += $"\"{v.Key}\" : \"{v.Value(v.Key)}\"\n";
             }
-            log.debug($"{pluginInfo.Name}: List of Built-in Variables\nbivStr");
+            log.debug($"{pluginInfo.Name}: List of variables\n{bivStr}");
 
         }      
     }

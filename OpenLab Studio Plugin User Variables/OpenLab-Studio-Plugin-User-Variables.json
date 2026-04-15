@@ -1,5 +1,10 @@
 {
-  "dictionary": 
-    { "test": "hello" }
-  
+  "envVars": true,
+  "builtinVars": true,
+  "specialFoldersVars": true,
+  "userVars": true,
+  "dictionary": {
+    "test": "hello"
+  }
+
 }
