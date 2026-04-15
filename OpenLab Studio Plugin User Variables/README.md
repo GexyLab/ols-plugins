@@ -44,3 +44,26 @@ It's possible to use variables inside the others variables, to create the aliase
      "workDir": "%%processPath"
 }
 ```
+
+## Predefined variables
+All variable of System.Environment.SpecialFolder class have been added to predefined variables, see https://learn.microsoft.com/it-it/dotnet/api/system.environment.specialfolder?view=net-7.0 to complete list, for the System.Environment class have been added only these variables(see https://learn.microsoft.com/it-it/dotnet/api/system.environment?view=net-8.0), these variables as inetnded as builtin variables
+
+|Name|
+|:----|
+|userName|
+|machineName|
+|processId|
+|processPath|
+|currentDirectory|
+|systemDirectory|
+
+Other builtin variables
+
+|Name|Description|
+|:----|:--------|
+|userName||
+|machineName||
+|processId||
+|processPath||
+|currentDirectory||
+|systemDirectory||
