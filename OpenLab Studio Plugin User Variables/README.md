@@ -26,7 +26,7 @@ Is possible to enable/disable some group of variables. The user variables must b
 |Name|Optional|Default|Description|
 |:----|:--------:|:-------:|:-----------|
 |envVar|yes|false|Enable/disable windows(user and system) variables|
-|builtinVar|yes|false|Enable/disable builtin variables(ex.: "processPath")|
+|builtinVar|yes|false|Enable/disable builtin variables(ex.: "processPath", see System.Evironment class)|
 |specialFoldersVars|yes|false|Enable/disable special folders variables(ex.: MyDocuments path)|
 |userVars|yes|true|Enable/disable user defined variables(defined in the "dictionary" object|
 
