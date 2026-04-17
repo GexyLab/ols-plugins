@@ -61,7 +61,7 @@ namespace OpenLab_Studio_Plugin_User_Variables
 
         #endregion
 
-        public OLSPluginUserVariables(IErrorManager _errorManager, IPluginsManager _pluginsManager, IEventsManager _eventsManager, IWindowsManager _windowsManager, ProjectsManager _projectsManager, PluginDefinition _pluginDefinition) : base(_errorManager, _pluginsManager, _eventsManager, _windowsManager, _projectsManager, _pluginDefinition)
+        public OLSPluginUserVariables(IPluginsManager _pluginsManager, IEventsManager _eventsManager, IWindowsManager _windowsManager, ProjectsManager _projectsManager, PluginDefinition _pluginDefinition) : base( _pluginsManager, _eventsManager, _windowsManager, _projectsManager, _pluginDefinition)
         {
             pluginInfo = new Info();
         }

@@ -33,12 +33,11 @@ namespace OpenLabStudio.plugins
         #endregion
 
         public OLSPluginProjectsDirectory(
-            IErrorManager _errorManager,
             IPluginsManager _pluginsManager,
             IEventsManager _eventsManager,
             IWindowsManager _windowsManager,
             ProjectsManager _projectsManager,
-            PluginDefinition _pluginDefinition) : base(_errorManager, _pluginsManager, _eventsManager, _windowsManager, _projectsManager, _pluginDefinition)
+            PluginDefinition _pluginDefinition) : base(_pluginsManager, _eventsManager, _windowsManager, _projectsManager, _pluginDefinition)
         {
             pluginInfo = new Info();
         }
@@ -89,12 +88,12 @@ namespace OpenLabStudio.plugins
                 }
                 catch (Exception ex)
                 {
-                    throw new OLSException(errorManager, ex);
+                    throw new OLSException(ex);
                 }
             }
             else
             {
-                throw new OLSException(errorManager, "Plugin not have it's specific config, missing \"config\" json object in OpenLab Studio config file");
+                throw new OLSException("Plugin not have it's specific config, missing \"config\" json object in OpenLab Studio config file");
             }
                 
         }
